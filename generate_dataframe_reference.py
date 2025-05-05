@@ -30,16 +30,15 @@ for _, row in ms_asl_json.iterrows():
     new_row = {
         "id": counter + 1,
         "category": category,
-        "category_num": category_counts[category],
         "dataset_type": "MSASL",
         "url": row["url"],
-        "dataset_split": "test",
+        "dataset_split": "", #TODOsplit 
         "frame_start": row["start"],
         "frame_end": row["end"],
         "fps": row["fps"],
-        "filename": f"{category}_{category_counts[category]}",
-        "is_valid": True,
-        "is_duplicate": False,
+        "filename": f"{counter+1}.mp4",
+        "is_valid": None, #TODOchecked
+        "is_duplicate": None, #TODOchecked
     }
     rows.append(new_row)
     counter += 1
