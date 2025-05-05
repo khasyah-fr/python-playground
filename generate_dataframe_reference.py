@@ -97,5 +97,8 @@ for _, row in ms_asl_test_json.iterrows():
 # Add all rows at once
 df = pd.concat([df, pd.DataFrame(test_rows)], ignore_index=True)
 
+# is_duplicate should be False for the first unique [url, frame_start, frame_end], then True for others
+df['is_duplicate'] = df.duplicated(subset=['url', 'frame_start', 'frame_end'], keep='first')
+
 # Export to CSV
 df.to_csv("MSASL.csv", index=False)
