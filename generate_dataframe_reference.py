@@ -19,13 +19,11 @@ df = pd.DataFrame({
 ms_asl_json = pd.read_json("MSASL_test.json")
 
 rows = []
-category_counts = {}  # Cache to count per category
 
 counter = len(df)
 
 for _, row in ms_asl_json.iterrows():
     category = row["clean_text"]
-    category_counts[category] = category_counts.get(category, 0) + 1
 
     new_row = {
         "id": counter + 1,
