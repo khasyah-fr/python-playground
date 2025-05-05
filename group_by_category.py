@@ -36,4 +36,4 @@ for category, group in df_valid.groupby("category"):
     else:
         df_valid.loc[group["index"], "dataset_split"] = "train"
 
-print(df)
+print(df_valid)
